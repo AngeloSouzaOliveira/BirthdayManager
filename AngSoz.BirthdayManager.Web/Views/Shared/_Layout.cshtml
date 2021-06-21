@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+
+<!--[if IE 9]>
+    <html class="no-js lt-ie10" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+
+<html class="no-js" lang="pt-br">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Birthday Manager</title>
+
+    <meta name="description" content="Birthday Manager">
+    <meta name="author" content="Angelo Souza ">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/plugins.css">
+    <link rel="stylesheet" href="~/css/main.css">
+    <link rel="stylesheet" href="~/css/themes.css">
+    <script src="~/js/vendor/modernizr-3.3.1.min.js"></script>
+
+    <style>
+        /* My Custom*/
+        .slimScrollDiv {
+            width: 220px !important;
+        }
+
+        .table thead > tr > th {
+            color: white;
+            font-size: 15px !important;
+            vertical-align: middle;
+        }
+        .table tbody > tr > td {
+            vertical-align: middle !important;
+        } 
+
+        .themed-background-danger {
+            background-color: #de815c !important;
+            color: white;
+        }
+
+        .themed-background-creme {
+            background-color: #b09573 !important;
+            color: white;
+        }
+
+        .themed-background-success {
+            background-color: #7c9f3f !important;
+            color: white;
+        }
+
+        .widget-content {
+            background-color: white;
+        }
+
+        .d-flex {
+            display: flex !important;
+        }
+
+        .buttonsearch {
+            overflow: hidden !important;
+            position: relative !important;
+            padding-right: 25px !important;
+            padding-left: 10px !important;
+            margin-left: 10px !important;
+        }
+
+        .btn{
+            font-size:14px;
+        }
+
+        .border {
+            border-right: 1px solid #ebeef26b;
+        }
+
+        .bg-light2 {
+            background-color: #f2f2f280;
+        }
+
+        .table {
+            border: 1px solid #f5f1f1 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="page-wrapper" class="page-loading">
+        <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
+            <div id="sidebar-alt" tabindex="-1" aria-hidden="true">
+                <a href="javascript:void(0)" id="sidebar-alt-close" onclick="App.sidebar('toggle-sidebar-alt');"><i class="fa fa-times"></i></a>
+            </div>
+            <div id="sidebar">
+                <!-- logo-->
+                <div id="sidebar-brand" class="themed-background">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                        <i class="fa fa-database"></i> <span class="sidebar-nav-mini-hide">Birthday<strong>Manager</strong></span>
+                    </a>
+                </div>
+                <!-- END logo -->
+                <div id="sidebar-scroll">
+                    <div class="sidebar-content">
+                        <ul class="sidebar-nav">
+                            <li class="sidebar-separator">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Index"><i class="fa fa-home"></i><span class="sidebar-nav-mini-hide"> Home</span></a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Pessoa" asp-action="Index"><i class="fa fa-birthday-cake"></i><span class="sidebar-nav-mini-hide"> Listar Aniversários</span></a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Pessoa" asp-action="Cadastro"><i class="fa fa-user-plus"></i><span class="sidebar-nav-mini-hide"> Casdastrar Pessoa</span></a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Presente" asp-action="Index"><i class="fa fa-gift"></i> <span class="sidebar-nav-mini-hide"> Listar Presente</span></a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Presente" asp-action="Cadastro"><i class="fa fa-cart-plus"></i> <span class="sidebar-nav-mini-hide"> Registrar Presente</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="sidebar-extra-info" class="sidebar-content sidebar-nav-mini-hide">
+                    <div class="text-center">
+                        <small>Birthday Manager</small><br>
+                         <small> &copy; 2021</small>
+                    </div>
+                </div>
+            </div>
+            <div id="main-container">
+                <header class="navbar navbar-inverse navbar-fixed-top">
+                    <ul class="nav navbar-nav-custom">
+                        <li>
+                            <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
+                                <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
+                                <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
+                            </a>
+                        </li>
+                        <li class="hidden-xs animation-fadeInQuick">
+                            <a href=""><strong>Gerenciador de Aniversário</strong></a>
+                        </li>
+                    </ul>
+                </header>
+                <div id="page-content">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
+    <script src="~/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="~/js/vendor/bootstrap.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/app.js"></script>
+
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="~/js/pages/readyDashboard.js"></script>
+    <script>
+        $(function () {
+            ReadyDashboard.init();
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

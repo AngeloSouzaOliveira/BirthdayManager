@@ -1,0 +1,69 @@
+﻿@model AngSoz.BirthdayManager.Web.Models.Pessoa
+
+@{
+    ViewData["Title"] = "Editar Pessoa";
+}
+
+
+<div class="row">
+    <div class="col-sm-12 col-lg-12">
+
+        <div class="widget">
+
+            <div class="col-sm-12 col-lg-6">
+                <h3 class="title-table"><strong>@ViewData["Title"]</strong></h3>
+                <div class="widget-content border-bottom">
+                    <span class="title-table"><strong>Edição</strong></span>
+
+                    <div class="pull-right">
+                        <a asp-action="Index" class="btn themed-background-creme" style="margin-top: -7px;"><i class="fa fa-undo"></i> Todos aniversários</a>
+                    </div>
+
+                </div>
+
+                <div class="widget-content border-bottom themed-background-muted">
+                    <form action="/pessoa/editar" method="post">
+
+                        <div class="form-group">
+                            <label asp-for="Nome" class="control-label"></label>
+                            <input asp-for="Nome" class="form-control" />
+                            <span asp-validation-for="Nome" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Sobrenome</label>
+                            <input asp-for="SobreNome" class="form-control" />
+                            <span asp-validation-for="SobreNome " class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="DataNascimento" class="control-label"></label>
+                            <input asp-for="DataNascimento" class="form-control" />
+                            <span asp-validation-for="DataNascimento" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" asp-for="TeDeuPresente" /> @Html.DisplayNameFor(model => model.TeDeuPresente)
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="FamilarOuAmigo" class="control-label"></label>
+                            <input asp-for="FamilarOuAmigo" class="form-control" />
+                            <span asp-validation-for="FamilarOuAmigo" class="text-danger"></span>
+                        </div>
+
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="form-group">
+                            <input type="submit" value="Salvar" class="btn btn-effect-ripple btn-block btn-success" />
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

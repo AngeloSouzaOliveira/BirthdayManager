@@ -1,0 +1,69 @@
+﻿@model Pessoa;
+
+@{
+    ViewData["Title"] = "Detalhes da Pessoa";
+}
+
+<h3> <strong style="padding-left:15px;"> @ViewData["Title"]</strong></h3>
+
+
+
+<div class="col-md-8 col-lg-9">
+
+    <div class="block">
+
+        <div class="block-title">
+
+            <ul class="nav nav-tabs" data-toggle="tabs">
+                <li class="active"><h4>Detalhamento</h4></li>
+            </ul>
+
+        </div>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="tickets-list">
+                <div class="block-content-full">
+                    <div class="table-responsive remove-margin-bottom">
+                        <table class="table table-striped table-vcenter remove-margin-bottom">
+
+                            <tbody>
+
+                                <tr>
+                                    <td class="text-left">Nome Completo:</td>
+                                    <td>@Model.Nome @Model.SobreNome</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-left">Data Nascimento:</td>
+                                    <td>@(Model.DataNascimento.ToString("dd-MM-yyyy"))</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-left">Idade</td>
+                                    <td>@Model.Idade anos</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-left">É amigo ou familiar: </td>
+                                    <td>@Model.FamilarOuAmigo</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-left">Já te deu presente?</td>
+                                    <td>@(Model.TeDeuPresente == true ? "Sim" : "Não")</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+                        <div class="pull-right" style="padding:10px;">
+                            <a class="btn themed-background-creme" asp-action="Editar" asp-route-id="@Model.Id">Editar</a>
+                            <a class="btn themed-background-success" asp-action="Index"><i class="fa fa-undo"></i> Voltar a lista de aniversários</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

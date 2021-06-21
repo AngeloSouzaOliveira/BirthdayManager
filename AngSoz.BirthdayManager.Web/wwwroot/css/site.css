@@ -1,0 +1,32 @@
+/* My Custom*/
+.slimScrollDiv {
+    width: 220px !important;
+}
+
+thead tr th {
+    color: white;
+    font-size: 1.6rem !important;
+}
+
+.themed-background-danger {
+    background-color: #de815c !important;
+    color: white;
+}
+
+.themed-background-creme {
+    background-color: #b09573 !important;
+    color: white;
+}
+
+.themed-background-success {
+    background-color: #7c9f3f !important;
+    color: white;
+}
+
+.widget-content {
+    background-color: white;
+}
+
+.d-flex {
+    display: flex !important;
+}

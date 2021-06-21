@@ -1,0 +1,192 @@
+﻿@model AngSoz.BirthdayManager.Web.Models.PessoasViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div>
+    <div class="row">
+        <div class="col-sm-12 col-lg-12 text-center">
+            <h2><strong>Seja bem-vindo :)</strong></h2>
+        </div>
+    </div>
+    <div id="page-content">
+
+        <div class="row">
+            <div class="col-sm-6 col-lg-4">
+                <a href="javascript:void(0)" class="widget">
+                    <div class="widget-content widget-content-mini text-right clearfix">
+                        <div class="widget-icon pull-left themed-background-success">
+                            <i class="gi gi-user text-light-op"></i>
+                        </div>
+                        <h2 class="widget-heading h3 text-success">
+                            <strong><span data-toggle="counter" data-to="@ViewBag.CountPessoa"></span></strong>
+                        </h2>
+                        
+                        <span class="text-muted">PESSOAS CADASTRADAS</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <a href="javascript:void(0)" class="widget">
+                    <div class="widget-content widget-content-mini text-right clearfix">
+                        <div class="widget-icon pull-left themed-background-warning">
+                            <i class="fa fa-gift text-light-op"></i>
+                        </div>
+                        <h2 class="widget-heading h3 text-warning">
+                            <strong><span data-toggle="counter" data-to="@ViewBag.CountPresentes"></span></strong>
+                        </h2>
+                        <span class="text-muted">PRESENTES CADASTRADOS</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <a href="javascript:void(0)" class="widget">
+                    <div class="widget-content widget-content-mini text-right clearfix">
+                        <div class="widget-icon pull-left themed-background-danger">
+                            <i class="fa fa-birthday-cake text-light-op"></i>
+                        </div>
+                        <h2 class="widget-heading h3 text-danger">
+                            <strong><span data-toggle="counter" data-to="@ViewBag.CountAniversarioDia"></span></strong>
+                        </h2>
+                        
+                        <span class="text-muted">ANIVERSÁRIO HOJE</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="row">
+            @*Anivérsários ordenados por data*@
+            <div class="col-sm-6 col-lg-8">
+                <div class="widget">
+                    <div class="widget-content border-bottom">
+                        <span class="pull-right text-muted"><i class="fa fa-sort-amount-desc"></i></span> <strong>Aniversários ordenados por data</strong>
+                    </div>
+                    <div class="widget-content border-bottom themed-background-muted">
+
+                        <table class="table table-hover" style="margin-top:5px;">
+                            <thead style="background-color: #5ccdde">
+                                <tr class="text-white">
+                                    <th class="border">Nome</th>
+                                    <th class="border">Sobrenome</th>
+                                    <th class="border">Data de nascimento</th>
+                                    <th class="border">Idade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var pessoa in Model.AniversarioOrdem)
+                                {
+                                    <tr>
+                                        <td>@pessoa.Nome</td>
+                                        <td class="bg-light2">@pessoa.SobreNome</td>
+                                        <td>@(pessoa.DataNascimento.ToString("dd-MM-yyyy"))</td>
+                                        <td class="bg-light2"> @pessoa.Idade anos</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            @*Banner*@
+            <div class="col-sm-4">
+                <div class="widget">
+                
+                    <div class="widget-image">
+                        <img src="~/img/vela.jpg" alt="vela" style="min-width: 100%;">
+                        <div class="widget-image-content">
+                            <h2 class="widget-heading"><span class="text-light"><strong>Envelhecer é como velejar, você não pode parar o vento, mas, </strong></span></h2>
+                            <h3 class="widget-heading text-light-op h4">pode direcionar a vela para que o vento lhe seja favorável.</h3>
+                        </div>
+                       
+                    </div>
+                    <div class="widget-content widget-content-full text-dark">
+                        <div class="row text-center">
+                            <p style="padding-top:15px"> Viva e saiba viver! </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            @*Anivérsários do dia*@
+            <div class="col-sm-5 col-lg-5">
+                <div class="widget">
+                    <div class="widget-content border-bottom">
+                        <span class="pull-right text-muted"><i class="fa fa-calendar-check-o"></i></span> <strong>Aniversariantes do dia</strong>
+                    </div>
+                    <div class="widget-content border-bottom themed-background-muted">
+
+                        <table class="table table-hover" style="margin-top:5px;">
+                            <thead style="background-color: #5ccdde">
+                                <tr class="text-white">
+                                    <th class="border">Nome</th>
+                                    <th class="border">Sobrenome</th>
+                                    <th class="border">Data de nascimento</th>
+                                    <th class="border">Idade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var x in Model.AniversarioDia)
+                                {
+                                    <tr>
+                                        <td>@x.Nome</td>
+                                        <td class="bg-light2">@x.SobreNome</td>
+                                        <td>@(x.DataNascimento.ToString("dd-MM-yyyy"))</td>
+                                        <td class="bg-light2">@x.Idade anos</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            @*Anivérsários do dia*@
+            <div class="col-sm-7 col-lg-7">
+                <div class="widget">
+                    <div class="widget-content border-bottom">
+                        <span class="pull-right text-muted"><i class="fa fa-gift"></i></span> <strong>Lista de presente</strong>
+                    </div>
+                    <div class="widget-content border-bottom themed-background-muted">
+
+                        <table class="table table-hover" style="margin-top:5px;">
+                            <thead style="background-color: #5ccdde">
+                                <tr class="text-white">
+                                    <th class="border">Presente</th>
+                                    <th class="border">Valor</th>
+                                    <th class="border">Para quem?</th>
+                                    <th class="border">Idade</th>
+                                    <th class="border">Data de Nascimento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var p in Model.OrdemDatePresente)
+                                {
+                                    <tr>
+                                        <td>@p.NomePresente</td>
+                                        <td class="bg-light2">R$ @p.ValorPresente</td>
+                                        <td>@p.Pessoas.Nome</td>
+                                        <td class="bg-light2"> @p.Pessoas.Idade anos</td>
+                                        <td> @(p.Pessoas.DataNascimento.ToString("dd-MM-yyyy"))</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

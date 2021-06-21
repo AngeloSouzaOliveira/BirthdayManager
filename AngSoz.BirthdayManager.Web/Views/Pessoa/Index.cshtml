@@ -1,0 +1,73 @@
+﻿@model IEnumerable<AngSoz.BirthdayManager.Web.Models.Pessoa>
+
+<div class="row">
+    <div class="col-sm-12 col-lg-12">
+
+        <div class="widget">
+            <div class="widget-content border-bottom">
+                <h3 class="title-table"><strong>Lista de Aniversário</strong></h3>
+            </div>
+            <div class="widget-content border-bottom themed-background-muted">
+
+                <div class="row py-5">
+
+                    <div class="col-sm-12 col-lg-3 mt-3">
+                        <a asp-action="Cadastro" class="btn btn-effect-ripple btn-block btn-success"><i class="fa fa-plus-circle"></i> Adicionar novo amigo</a>
+                    </div>
+
+                    <div class="col-sm-12 col-lg-5">
+                    </div>
+
+                    <div class="col-sm-12 col-lg-4">
+
+                        <form action="/pessoa" method="get" class="d-flex mt-3">
+                            <input type="text" name="searchString" class="form-control" placeholder="Pesquise o nome de um amigo...">
+                            <button type="submit" class="btn  btn-effect-ripple btn-primary buttonsearch">Pesquisar</button>
+                        </form>
+
+                    </div>
+                </div>
+
+                <table class="table table-hover" style="margin-top:32px;">
+                    <thead style="background-color: #5ccdde">
+                        <tr class="text-white">
+                            <th class="border">Nome</th>
+                            <th class="border">Sobrenome</th>
+                            <th class="border">Data de nascimento</th>
+                            <th class="border">Idade</th>
+                            <th class="border">É amigo ou familiar?</th>
+                            <th class="border">Já te deu algum presente?</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @foreach(var pessoa in Model){
+                        <tr>
+                            <td >@pessoa.Nome</td>
+                            <td class="bg-light2">@pessoa.SobreNome</td>
+                            <td >@(pessoa.DataNascimento.ToString("dd-MM-yyyy"))</td>
+                            <td  class="bg-light2">@pessoa.Idade anos</td>
+                            <td >@pessoa.FamilarOuAmigo</td>
+                            <td  class="bg-light2">@(pessoa.TeDeuPresente == true ? "Sim" : "Não")</td>
+                            <td >
+                                <a class="btn themed-background-creme" href="/pessoa/editar?id=@pessoa.Id" role="button">Editar</a>
+                                <a class="btn themed-background-success"  href="/pessoa/detalhes?id=@pessoa.Id" role="button">Detalhes</a>
+                                <a class="btn themed-background-danger" href="/pessoa/excluir?id=@pessoa.Id" role="button">Excluir</a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+
+
+            </div>
+            <div class="widget-content widget-content-full">
+                <div class="row text-center">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

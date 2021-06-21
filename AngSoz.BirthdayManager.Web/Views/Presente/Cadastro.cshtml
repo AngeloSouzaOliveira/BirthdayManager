@@ -1,0 +1,53 @@
+﻿@model AngSoz.BirthdayManager.Web.Models.Presente
+
+@{
+    ViewData["Title"] = "Registar presente";
+}
+
+<div class="row">
+    <div class="col-sm-12 col-lg-12">
+        <div class="widget">
+
+            <div class="col-sm-12 col-lg-6">
+
+                <div class="widget-content border-bottom">
+                    <strong>Dados do presente</strong>
+                    <div class="pull-right">
+                        <a asp-action="Index" class="btn themed-background-creme" style="margin-top: -7px;"><i class="fa fa-undo"></i> Voltar a lista de presente</a>
+                    </div>
+                </div>
+
+                <div class="widget-content border-bottom themed-background-muted">
+
+                    <form asp-action="Cadastro">
+
+                        <div class="form-group">
+                            <label class="control-label">Selecione a pessoa</label>
+                            <select asp-for="PessoaId" class="form-control" asp-items="ViewBag.PessoaId"></select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label"> Nome do presente </label>
+                            <input asp-for="NomePresente" class="form-control" />
+                            <span asp-validation-for="NomePresente" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label"> Valor do presente </label>
+                            <input asp-for="ValorPresente" class="form-control" />
+                            <span asp-validation-for="ValorPresente" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Registar presente" class="btn btn-primary" />
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+﻿@model Pessoa
+
+@{
+    ViewData["Title"] = "Excluir Pessoa";
+}
+
+
+<div class="col-md-8 col-lg-9">
+    <h3 class="title-table"><strong>@ViewData["Title"]</strong></h3>
+    <div class="block">
+        <div class="block-title">
+            <ul class="nav nav-tabs" data-toggle="tabs">
+                <li class="active"><h4>Deseja excluir @Model.Nome @Model.SobreNome? </h4></li>
+            </ul>
+
+        </div>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="tickets-list">
+                <div class="block-content-full">
+
+                    <div class="table-responsive remove-margin-bottom">
+
+                        <table class="table table-striped table-vcenter remove-margin-bottom">
+                            <tbody>
+                                <tr>
+                                    <td class="text-left">Nome Completo:</td>
+                                    <td>@Model.Nome @Model.SobreNome</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-left">Data Nascimento:</td>
+                                    <td>@(Model.DataNascimento.ToString("dd-MM-yyyy"))</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-left">Idade</td>
+                                    <td>@Model.Idade anos</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-left">É amigo ou familiar: </td>
+                                    <td>@Model.FamilarOuAmigo</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-left">Já te deu presente?</td>
+                                    <td>@(Model.TeDeuPresente == true ? "Sim" : "Não")</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <form asp-action="ExcluirPessoa" style="padding-top:10px; padding-right:10px;">
+                            <input type="hidden" asp-for="Id" />
+                            <input type="submit" value="Excluir" style="margin-left: 10px; margin-bottom: 10px; " class="btn themed-background-danger" />
+                            <div class="pull-right">
+                                <a class="btn themed-background-creme" asp-action="Editar" asp-route-id="@Model.Id">Editar</a>
+                                <a class="btn themed-background-success" asp-action="Index"><i class="fa fa-undo"></i> Lista de Aniversários</a>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

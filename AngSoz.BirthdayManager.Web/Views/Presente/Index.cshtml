@@ -1,0 +1,68 @@
+﻿@model List<Presente>
+
+<div class="row">
+    <div class="col-sm-12 col-lg-12">
+        <div class="widget">
+
+            <div class="widget-content border-bottom">
+                <h3 class="title-table"><strong>Lista de Presente</strong></h3>
+            </div>
+
+            <div class="widget-content border-bottom themed-background-muted">
+
+                <div class="row py-5">
+
+                    <div class="col-sm-12 col-lg-3">
+                        <a asp-action="Cadastro" class="btn btn-effect-ripple btn-block btn-success"><i class="fa fa-plus-circle"></i> Adicionar novo presente</a>
+                    </div>
+
+                    <div class="col-sm-12 col-lg-5">
+                    </div>
+
+                    <div class="col-sm-12 col-lg-4">
+
+                    </div>
+
+                </div>
+
+                <table class="table table-hover" style="margin-top:32px;">
+
+                    <thead style="background-color: #5ccdde">
+                        <tr class="text-white">
+                            <th class="border">Nome</th>
+                            <th class="border">Nome do presente</th>
+                            <th class="border">Valor do presente</th>  
+                            <th class="border">Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                      @foreach(var presente in Model){
+                        <tr>
+                            <td>@presente.Pessoas.Nome</td>
+                            <td class="bg-light2">@presente.NomePresente</td>
+                            <td>R$ @presente.ValorPresente</td>
+                            
+                            
+                            <td class="bg-light2">
+                                <a class="btn themed-background-creme" href="/presente/editar?id=@presente.Id" role="button">Editar</a>
+                                <a class="btn themed-background-success"  href="/presente/detalhes?id=@presente.Id" role="button">Detalhes</a>
+                                <a class="btn themed-background-danger" href="/presente/excluir?id=@presente.Id" role="button">Excluir</a>
+                            </td>
+                        </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="widget-content widget-content-full">
+                <div class="row text-center">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

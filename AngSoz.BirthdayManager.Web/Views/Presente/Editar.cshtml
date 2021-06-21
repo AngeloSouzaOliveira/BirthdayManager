@@ -1,0 +1,51 @@
+﻿@model AngSoz.BirthdayManager.Web.Models.Presente
+
+@{
+    ViewData["Title"] = "Editar Presente";
+}
+
+<div class="row">
+    <div class="col-sm-12 col-lg-12">
+        <div class="widget">
+            <div class="col-sm-12 col-lg-6">
+                <h3 class="title-table"><strong>@ViewData["Title"]</strong></h3>
+                <div class="widget-content border-bottom">
+                    <strong>Edição</strong>
+                    <div class="pull-right">
+                        <a asp-action="Index" class="btn themed-background-creme" style="margin-top: -7px;"><i class="fa fa-undo"></i> Voltar a lista de presentes</a>
+                    </div>
+                </div>
+
+                <div class="widget-content border-bottom themed-background-muted">
+                    <form action="/presente/editar" method="post">
+
+                        <div class="form-group">
+                            <label class="control-label">Selecione a pessoa</label>
+                            <select asp-for="PessoaId" class="form-control" asp-items="ViewBag.PessoaId"></select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label"> Nome do presente </label>
+                            <input asp-for="NomePresente" class="form-control" />
+                            <span asp-validation-for="NomePresente" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label"> Valor do presente </label>
+                            <input asp-for="ValorPresente" class="form-control" />
+                            <span asp-validation-for="ValorPresente" class="text-danger"></span>
+                        </div>
+
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="form-group">
+                            <input type="submit" value="Salvar" class="btn btn-primary" />
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
